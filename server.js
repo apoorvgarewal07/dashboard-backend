@@ -14,11 +14,11 @@ app.use(cors(
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.json({ status: 'Backend is running', api: '/api/metrics' });
+  res.send({ status: 'Backend is running', api: '/api/metrics' });
 });
 
 app.get('/api', (req, res) => {
-  res.json({ status: 'Backend is running', api: '/api/metrics' });
+  res.send({ status: 'Backend is running', api: '/api/metrics' });
 });
 
 const PORT = process.env.PORT || 5000;
