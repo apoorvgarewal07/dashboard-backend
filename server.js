@@ -3,8 +3,13 @@ const cors = require('cors');
 const metricsRoutes = require('./routes/metricsRoutes');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["https://dashboard-frontend-khaki-seven.vercel.app/" ],
+   methods: ["GET", "POST", "OPTIONS"],
+  credentials: true
+}));
 app.use(express.json());
+
 
 app.use('/api', metricsRoutes);
 
