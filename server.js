@@ -4,12 +4,19 @@ const metricsRoutes = require('./routes/metricsRoutes');
 
 const app = express();
 app.use(cors({
-  origin: ["https://dashboard-frontend-khaki-seven.vercel.app/" ],
-   methods: ["GET", "POST", "OPTIONS"],
+  origin: [
+    "https://dashboard-frontend-khaki-seven.vercel.app",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000"
+  ],
+  methods: ["GET", "POST", "OPTIONS"],
   credentials: true
 }));
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.json({ status: 'Backend is running', api: '/api/metrics' });
+});
 
 app.use('/api', metricsRoutes);
 
